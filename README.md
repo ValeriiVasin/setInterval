@@ -1,0 +1,2 @@
+Normalize setTimeout() function
+-------------------------------
