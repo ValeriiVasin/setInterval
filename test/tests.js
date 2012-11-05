@@ -29,19 +29,18 @@
 
         id1 = setInterval(function () {
             c1 += 1;
-        }, 100);
+        }, 300);
 
         id2 = LJ.setInterval(function () {
             c2 += 1;
-        }, 100);
-
-        equal(c1, c2, 'counters equality');
+        }, 300);
 
         setTimeout(function () {
             clearInterval(id1);
             LJ.clearInterval(id2);
             // result sync delay
-            setTimeout(start, 100);
+            equal(c1, c2, 'counters equality');
+            start();
         }, 2000);
 
     });
@@ -64,7 +63,11 @@
         LJ.clearInterval(id2);
         equal(c2, 1);
 
-        setTimeout(start, 1500);
+        setTimeout(function () {
+            equal(c1, 0);
+            equal(c2, 1);
+            start();
+        }, 1500);
     });
 
 }());
