@@ -70,4 +70,18 @@
         }, 1500);
     });
 
+    asyncTest('Correct timing', function () {
+        var c = 0,
+            id = null;
+
+        id = LJ.setInterval(function () {
+            c += 1;
+        }, 200);
+
+        setTimeout(function () {
+            setTimeout(function () { equal(c, 10, 'correct value of counter'); }, 0);
+            start();
+        }, 2100);
+    });
+
 }());
