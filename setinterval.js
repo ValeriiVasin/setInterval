@@ -1,8 +1,8 @@
-// custom namespace
-var LJ = {};
-
-(function (NS) {
+;(function (window) {
     'use strict';
+
+    var _setInterval = window.setInterval,
+        _clearInterval = window.clearInterval;
 
     /**
      * Normalized setInterval function, based on setTimout
@@ -10,7 +10,7 @@ var LJ = {};
      * @param {Number}   timeout      The interval (in milliseconds) on how often to execute the code
      * @param {Boolean}  [immediate]  Flag that will show do we need execute function immediately (first time)
      */
-    NS.setInterval = function (fn, timeout, immediate) {
+    function setInterval(fn, timeout, immediate) {
             /**
              * Uniq id object, that will be a result of setInterval execution
              * Notice: initial id value is needed, cuz detection of next iteration
@@ -33,11 +33,24 @@ var LJ = {};
         immediate = true;
 
         return uid;
-    };
+    }
 
-    NS.clearInterval = function (uid) {
-        clearTimeout(uid.id);
-        delete uid.id;
-    };
+    /**
+     * Clear interval that has been set before
+     * @param  {Object} uid Uniq interval identifier
+     */
+    function clearInterval(uid) {
+        if (typeof uid === 'number') {
+            _clearInterval(uid);
+        } else {
+            clearTimeout(uid.id);
+            delete uid.id;
+        }
+    }
 
-}(LJ));
+    // export
+    window._setInterval = _setInterval;
+    window._clearInterval = _clearInterval;
+    window.setInterval = setInterval;
+    window.clearInterval = clearInterval;
+}(this));
