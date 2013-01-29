@@ -40,6 +40,7 @@
      * @param  {Object} uid Uniq interval identifier
      */
     function clearInterval(uid) {
+        // fallback for original setInterval identifiers
         if (typeof uid === 'number') {
             _clearInterval(uid);
         } else {
