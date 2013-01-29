@@ -49,7 +49,6 @@
 
         it('should provide fallback for intervals, that could be set through original setInterval', function () {
             id = window._setInterval(timerCallback, 20);
-            spyOn(window, '_clearInterval').andCallThrough();
 
             jasmine.Clock.tick(100);
             expect(timerCallback.callCount).toBe(5);
