@@ -1,0 +1,25 @@
+{
+  "name": "setInterval",
+  "version": "0.0.1",
+  "description": "setInterval replacement.",
+  "main": "setinterval.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-karma": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ValeriiVasin/setInterval.git"
+  },
+  "keywords": [
+    "setinterval",
+    "timing"
+  ],
+  "author": "Valerii Vasin (valerii.vasin@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ValeriiVasin/setInterval/issues"
+  }
+}
