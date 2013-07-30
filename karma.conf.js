@@ -9,7 +9,7 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'src/setinterval.js',
+  'src/setInterval.js',
   'spec/*Spec.js'
 ];
 
